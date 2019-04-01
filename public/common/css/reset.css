@@ -10,7 +10,7 @@ address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:norm
 
 ul, ol ,li{ list-style:none; }
 
-body { color:#333; font:12px "SimSun","宋体","Arial Narrow",HELVETICA; background:#fff;}
+body { color:#333; font:12px "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu; background:#fff;}
 
 a { color:#666; text-decoration:none; }
 /*清除浮动*/
