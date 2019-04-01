@@ -52,6 +52,7 @@ $color:#5d8640;
     left: 0;
     bottom: 0;
     border-top:1px solid #ccc;
+    padding-top:.0625rem;
     ul{
         width: 100%;
         height: 100%;
@@ -65,7 +66,7 @@ $color:#5d8640;
             flex-direction: column;
             justify-content: center;
             color: #666;
-            font-size: .3rem;
+            font-size: .26rem;
         }
     }
 }
@@ -76,10 +77,10 @@ $color:#5d8640;
 #footer>ul>li>span{
     display: block;
     text-align: center;
-    padding-top: .06rem;
+    padding-top: .05rem;
 }
 #footer>ul>li>i{
-    font-size: .4rem;
+    font-size: .5rem;
     text-align: center;
 }
 
