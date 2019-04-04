@@ -53,6 +53,7 @@ $color:#5d8640;
     bottom: 0;
     border-top:1px solid #ccc;
     padding-top:.0625rem;
+    z-index: 5;
     ul{
         width: 100%;
         height: 100%;

@@ -7,7 +7,14 @@ module.exports = {
                pathRewrite:{
                    "^/api":""
                }
-           }
+           },
+        //    "/capi":{
+        //     target:"api9.wochu.cn",
+        //     changeOrigin:true,
+        //     pathRewrite:{
+        //         "^/capi":""
+        //     }
+        // }
         }
     }
 }

@@ -15,7 +15,7 @@
         width:100%;
         height:.9rem;
         background: #fff;
-        position: absolute;
+        position: fixed;
         // line-height: .9rem;
         padding:.24rem;
         z-index: 3;
@@ -31,8 +31,10 @@
            margin-left:.625rem;
            p{
                font-size: .3rem;
+               color:#1f6117;
                span{
                    font-size: .2rem;
+                   color:#1f6117;
                }
            }
         }

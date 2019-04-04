@@ -1,12 +1,31 @@
 <template>
-  <div class="classify">
-    <h2>分类</h2>
+  <div id="classify">
+    <ClassifyOne/>
+    <ClassifyTwo/>
+    <classifyThree/>
   </div>
 </template>
 
 <script>
+import ClassifyOne from "@/components/classify/classifyOne.vue"
+import ClassifyTwo from "@/components/classify/classifyTwo.vue"
+import classifyThree from "@/components/classify/classifyThree.vue"
 
 export default {
-  name: 'classify',
+  name:'classify',
+
+  components:{
+    ClassifyOne,
+    ClassifyTwo,
+    classifyThree
+  }
 }
 </script>
+
+
+
+<style>
+#classify{
+  padding-top:1rem;
+}
+</style>
