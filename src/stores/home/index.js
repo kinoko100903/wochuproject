@@ -9,7 +9,15 @@ export default {
         async getActionsList({ commit }) {
             let data = await getHome()
             commit('getMutationsList', data.data.acts)
-             console.log( data.data.acts)
+            //  console.log( data.data.acts)
+             let arr = data.data.acts;
+             for(var attr in arr){
+                //  console.log(arr[attr].items)
+                 let arr1 = arr[attr].items;
+                 for(var attr in arr1){
+                     console.log(arr1[attr])
+                 }
+             }
         }
     },
     mutations: {

@@ -296,9 +296,6 @@ export default {
     created() {
     this.getActionsList();
   //  console.log(list)
-  for(var attr in list){
-    console.log(list[0])
-  }
   },
   computed: {
     ...Vuex.mapState({

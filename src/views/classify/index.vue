@@ -2,14 +2,14 @@
   <div id="classify">
     <ClassifyOne/>
     <ClassifyTwo/>
-    <classifyThree/>
+    <!-- <classifyThree/> -->
   </div>
 </template>
 
 <script>
 import ClassifyOne from "@/components/classify/classifyOne.vue"
 import ClassifyTwo from "@/components/classify/classifyTwo.vue"
-import classifyThree from "@/components/classify/classifyThree.vue"
+// import classifyThree from "@/components/classify/classifyThree.vue"
 
 export default {
   name:'classify',
@@ -17,15 +17,12 @@ export default {
   components:{
     ClassifyOne,
     ClassifyTwo,
-    classifyThree
+    // classifyThree
   }
 }
 </script>
 
 
 
-<style>
-#classify{
-  padding-top:1rem;
-}
+<style lang="scss" scoped>
 </style>

@@ -2,10 +2,11 @@
     <div id = "ClassifyTwo">
         <div class = "left">
             <ul class = "left-list">
-                <li v-for="item in arr">{{item.text}}</li>
+                <router-link v-for="item in arr" tag="li" :to = "item.to">{{item.text}}</router-link>
 
             </ul>
         </div>
+         <router-view></router-view>
     </div>
 </template>
 
@@ -53,20 +54,16 @@ export default {
                   to:'/classify/nine'
               },
               {
-                  text:'水产海鲜',
+                  text:'乳饮西点',
                   to:'/classify/ten'
               },
               {
-                  text:'乳饮西点',
+                  text:'点心速食',
                   to:'/classify/eleven'
               },
               {
-                  text:'点心速食',
-                  to:'/classify/twelve '
-              },
-              {
                   text:'粮油副食',
-                  to:'/classify/thirteen'
+                  to:'/classify/twelve'
               }
           ]
         }
@@ -82,7 +79,7 @@ export default {
       position: absolute;
       top:0;
       left:0;
-      margin-top:1.2rem;
+      margin-top:.6rem;
   }  
   .left{
       width:25%;
@@ -97,12 +94,20 @@ export default {
       align-items: center;
       justify-content: center;
       margin-top:.3rem;
+      margin-bottom: 1rem;
   }
   .left-list li{
       text-align: center;
-      width:70%;
-      height:1rem;
+      width:100%;
+      height:.6rem;
       color:rgb(97, 95, 95);
       font-size: .28rem;
+      margin-top:.5rem;
+      line-height: .6rem;
   }
+  .left-list>.router-link-active{
+    color: #6eb042;
+    font-size: .3rem;
+    border-left:.06rem solid #6eb042;
+}
 </style>

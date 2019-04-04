@@ -4,17 +4,18 @@ module.exports = {
            "/api":{
                target:"http://api9.wochu.cn",
                changeOrigin:true,
-               pathRewrite:{
-                   "^/api":""
-               }
+            //    pathRewrite:{
+            //        "^/api":""
+            //    }
            },
-        //    "/capi":{
-        //     target:"api9.wochu.cn",
-        //     changeOrigin:true,
-        //     pathRewrite:{
-        //         "^/capi":""
-        //     }
-        // }
+           "/capi":{
+            target:"http://api9.wochu.cn",
+            changeOrigin:true,
+            pathRewrite:{
+                "^/api":""
+            }
+        },
+
         }
     }
 }

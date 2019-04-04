@@ -25,6 +25,7 @@ export default {
        notNextTick: true,
        // swiper configs 所有的配置同swiper官方api配置
        autoplay:true,
+       loop:true,
        // direction : 'vertical',
       //  effect:"coverflow",
        grabCursor : true,
