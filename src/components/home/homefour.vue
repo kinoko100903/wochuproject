@@ -1,22 +1,19 @@
 <template>
   <div class="homefour">
-    <!-- <ul>
-      <li v-for="(item,index) in list" :key="index">{{item}}</li>
-    </ul> -->
     <div class="fastnew">
       <div>
         <img
           src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/f58332d2-ad98-4d10-aa96-28d1b8090d37.jpg"
         >
       </div>
-      <ul>
-        <li>【5折】冬笋8.9元/500g以上</li>
-        <li>【59减20券】邀请好友双方都可得！</li>
+      <ul v-for="(item,index) in list[0]" id = "animate">
+        <li>{{item.posDes}}</li>
+        <li>{{item.title}}</li>
         <span class="iconfont">&#xf02aa;</span>
       </ul>
     </div>
-    <div class="logo">
-      <img src="https://img.wochu.cn/upload/85640a0f-8150-4439-94f4-54cca7cd1abe.gif">
+    <div class="logo" v-for="(item,index) in list[1]">
+      <img :src="item.imgUrl">
     </div>
     <div class="timelimit">
       <div id="solid"></div>
@@ -26,16 +23,14 @@
       <div id="solid"></div>
     </div>
     <div class="goods">
-      <div class="goodss">
-        <img
-          src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/a031ad2d-6b30-42ac-a34a-507d1af5f6f8.jpg"
-        >
+      <div class="goodss" v-for="(item,index) in list[2]">
+        <img :src="item.imgUrl">
         <div id="top">
-          <p class="p1">爱森蹄膀530g</p>
-          <p class="p2">满满胶原蛋白，连面膜钱都省了！红烧后连皮都好吃</p>
+          <p class="p1">{{item.goodsName}}</p>
+          <p class="p2">{{item.description}}</p>
           <div class="bottom">
-            <p class="p3">￥19.9</p>
-            <s>￥28.9</s>
+            <p class="p3">{{item.price | toSign("￥") }}</p>
+            <s>{{item.marketPrice | toSign("￥") }}</s>
             <span class="iconfont">&#xe726;</span>
           </div>
         </div>
@@ -43,74 +38,24 @@
     </div>
     <div class="list">
       <ul>
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
+       <router-link v-for="(item,index) in list[3]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
-            <p>￥26.9</p>
+            <p>{{item.price | toSign("￥") }}</p>
             <span class="iconfont aa" id="bb">&#xe726;</span>
           </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
+        </router-link>
       </ul>
     </div>
-    <div class="listlogo">
-      <img src="https://img.wochu.cn/upload/35ad945c-e82e-45ed-9fa8-20a89e493bd7.jpg">
+    <div class="listlogo" v-for="(item,index) in list[4]" >
+      <img :src="item.imgUrl">
     </div>
-    <div class="listlogo">
-      <img src="https://img.wochu.cn/upload/35ad945c-e82e-45ed-9fa8-20a89e493bd7.jpg">
+    <div class="listlogo" v-for="(item,index) in list[5]" >
+      <img :src="item.imgUrl">
     </div>
-    <div class="imglogo">
+    <div class="imglogo" >
       <img src="https://img.wochu.cn/upload/046da038-d3a0-4251-8b93-dcabc544a2ac.jpg">
       <div>
         <img src="https://img.wochu.cn/upload/a9abf4fe-170c-4d5e-8e59-ec4a1219e349.jpg">
@@ -127,16 +72,16 @@
     </div>
 
     <div class="goods">
-      <div class="goodss">
+      <div class="goodss" v-for="(item,index) in list[7]">
         <img
-          src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/a031ad2d-6b30-42ac-a34a-507d1af5f6f8.jpg"
+          :src="item.imgUrl"
         >
         <div id="top">
-          <p class="p1">爱森蹄膀530g</p>
-          <p class="p2">满满胶原蛋白，连面膜钱都省了！红烧后连皮都好吃</p>
+          <p class="p1">{{item.goodsName}}</p>
+          <p class="p2">{{item.description}}</p>
           <div class="bottom">
-            <p class="p3">￥19.9</p>
-            <s>￥28.9</s>
+            <p class="p3">{{item.price | toSign("￥") }}</p>
+            <s>{{item.marketPrice | toSign("￥") }}</s>
             <span class="iconfont">&#xe726;</span>
           </div>
         </div>
@@ -145,146 +90,192 @@
 
     <div class="list">
       <ul>
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
+       <router-link v-for="(item,index) in list[8]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
-            <p>￥26.9</p>
+            <p>{{item.price | toSign("￥") }}</p>
             <span class="iconfont aa" id="bb">&#xe726;</span>
           </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
+        </router-link>
       </ul>
     </div>
 
-    <div class="weeknew">
-      <img src="https://img.wochu.cn/upload/993194b7-4912-45f6-86c9-00f5206122c3.jpg">
+    <div class="weeknew" v-for="(item,index) in list[9]">
+      <img :src="item.imgUrl">
     </div>
     <div class="weeklist">
       <ul>
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
+         <router-link v-for="(item,index) in list[10]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
+            <p>{{item.price | toSign("￥") }}</p>
+            <span class="iconfont aa" id="cc">&#xe726;</span>
           </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
-
-        <li>
-          <img
-            src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/9b870125-0ebe-4edb-bf13-9ffd87ea5161.jpg"
-          >
-          <p>醋溜鱼片</p>
-          <s>￥28.8</s>
-          <div>
-            <p>￥26.9</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
-          </div>
-        </li>
+        </router-link>
       </ul>
     </div>
+
+    <div class="weeknew" v-for="(item,index) in list[11]">
+      <img :src="item.imgUrl">
+    </div>
+    <div class="weeklist">
+      <ul>
+         <router-link v-for="(item,index) in list[12]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
+          <div>
+            <p>{{item.price | toSign("￥") }}</p>
+            <span class="iconfont aa" id="cc">&#xe726;</span>
+          </div>
+        </router-link>
+      </ul>
+    </div>
+
+    <div class="weeknew" v-for="(item,index) in list[13]">
+      <img :src="item.imgUrl">
+    </div>
+    <div class="weeklist">
+      <ul>
+         <router-link v-for="(item,index) in list[14]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
+          <div>
+            <p>{{item.price | toSign("￥") }}</p>
+            <span class="iconfont aa" id="cc">&#xe726;</span>
+          </div>
+        </router-link>
+      </ul>
+    </div>
+
+    <div class="weeknew" v-for="(item,index) in list[15]">
+      <img :src="item.imgUrl">
+    </div>
+    <div class="weeklist">
+      <ul>
+         <router-link v-for="(item,index) in list[16]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
+          <div>
+            <p>{{item.price | toSign("￥") }}</p>
+            <span class="iconfont aa" id="cc">&#xe726;</span>
+          </div>
+        </router-link>
+      </ul>
+    </div>
+
+    <div class="weeknew" v-for="(item,index) in list[17]">
+      <img :src="item.imgUrl">
+    </div>
+    <div class="weeklist">
+      <ul>
+         <router-link v-for="(item,index) in list[18]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
+          <div>
+            <p>{{item.price | toSign("￥") }}</p>
+            <span class="iconfont aa" id="cc">&#xe726;</span>
+          </div>
+        </router-link>
+      </ul>
+    </div>
+
+
+    <div class="weeknew" v-for="(item,index) in list[19]">
+      <img :src="item.imgUrl">
+    </div>
+    <div class="weeklist">
+      <ul>
+         <router-link v-for="(item,index) in list[20]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
+          <div>
+            <p>{{item.price | toSign("￥") }}</p>
+            <span class="iconfont aa" id="cc">&#xe726;</span>
+          </div>
+        </router-link>
+      </ul>
+    </div>
+
+    <div class="weeknew" v-for="(item,index) in list[21]">
+      <img :src="item.imgUrl">
+    </div>
+    <div class="weeklist">
+      <ul>
+         <router-link v-for="(item,index) in list[22]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
+          <div>
+            <p>{{item.price | toSign("￥") }}</p>
+            <span class="iconfont aa" id="cc">&#xe726;</span>
+          </div>
+        </router-link>
+      </ul>
+    </div>
+
+
+    <div class="weeknew" v-for="(item,index) in list[23]">
+      <img :src="item.imgUrl">
+    </div>
+    <div class="weeklist">
+      <ul>
+         <router-link v-for="(item,index) in list[24]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
+          <div>
+            <p>{{item.price | toSign("￥") }}</p>
+            <span class="iconfont aa" id="cc">&#xe726;</span>
+          </div>
+        </router-link>
+      </ul>
+    </div>
+
+
+    <div class="weeknew" v-for="(item,index) in list[25]">
+      <img :src="item.imgUrl">
+    </div>
+    <div class="weeklist">
+      <ul>
+         <router-link v-for="(item,index) in list[26]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
+          <div>
+            <p>{{item.price | toSign("￥") }}</p>
+            <span class="iconfont aa" id="cc">&#xe726;</span>
+          </div>
+        </router-link>
+      </ul>
+    </div>
+
+
+    <div class="weeknew" v-for="(item,index) in list[27]">
+      <img :src="item.imgUrl">
+    </div>
+    <div class="weeklist">
+      <ul>
+         <router-link v-for="(item,index) in list[28]" tag="li" to="/classifya">
+          <img :src="item.imgUrl">
+          <p>{{item.goodsName}}</p>
+          <s>{{item.marketPrice | toSign("￥") }}</s>
+          <div>
+            <p>{{item.price | toSign("￥") }}</p>
+            <span class="iconfont aa" id="cc">&#xe726;</span>
+          </div>
+        </router-link>
+      </ul>
+    </div>
+
   </div>
 </template>
 
@@ -293,39 +284,29 @@ import Vuex from "vuex";
 
 // import {getHome} from "@/api/api.js"
 export default {
-    created() {
+  //调用mapActions中的方法：
+  created() {
     this.getActionsList();
-  //  console.log(list)
   },
+
   computed: {
     ...Vuex.mapState({
       list: state => state.home.list
     })
   },
+    //接收mutations方法中传递过来的值
   methods: {
     ...Vuex.mapActions({
       getActionsList: "home/getActionsList"
     })
-  }
-  
-  // async created(){
-  //     let data = await getHome();
-  //     // console.log(data.data.acts)
-  //     let list = []
-  //     list = data.data.acts
-  //     console.log(list)
+  },
+  filters:{
+        toSign(val,sign){
+            return sign+val;
+        }
+    },
 
-  // for(var items in data.data.acts){
-  //   // console.log(data.data.acts[items].items)
-  //   var list = data.data.acts[items].items;
-  //   for(var item in list){
-  //     console.log(list[item])
-
-  //   }
-  // }
-  //      }
 };
-// http://api9.wochu.cn/api/app/acts?version=20.0.0&source=H
 </script>
 
 <style lang="scss" scoped>
@@ -360,7 +341,11 @@ export default {
       height: 1.1rem;
       margin-top: 0.4rem;
       margin-left: 0.625rem;
+      width:100%;
     }
+  }
+  ul:nth-of-type(2){
+    display: none;
   }
   span {
     font-size: 0.4rem;
@@ -459,15 +444,20 @@ s {
     display: flex;
     overflow: auto;
     li {
-      margin-left: 0.1875rem;
+      margin-left: 0.4rem;
       img {
         width: 1.8rem;
         height: 1.8rem;
+        margin-left:-0.3125rem;
       }
       p {
         font-size: 0.24rem;
         color: #666;
         margin-top: 0.1875rem;
+        width: 1.2rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
       s {
         font-size: 0.2rem;
@@ -485,7 +475,11 @@ s {
   }
 }
 #bb {
-  margin-left: 0.4375rem;
+  margin-left: -0.1375rem;
+  font-size: 0.6rem;
+}
+#cc{
+  margin-left: 0.1375rem;
   font-size: 0.6rem;
 }
 .listlogo {
@@ -527,7 +521,7 @@ s {
 }
 .weeklist {
   width: 100%;
-  height: 8rem;
+  height: 7rem;
   padding-left: 0.3125rem;
   padding-top: 0.3125rem;
   ul {
@@ -545,6 +539,10 @@ s {
         font-size: 0.24rem;
         color: #666;
         margin-top: 0.1875rem;
+         width: 1.2rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
       s {
         font-size: 0.2rem;
@@ -561,4 +559,9 @@ s {
     }
   }
 }
+// #animate{
+//   li{
+//     width:70%;
+//   }
+// }
 </style>

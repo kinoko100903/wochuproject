@@ -1,5 +1,8 @@
 export default {
     path: '/shopcar',
     name: 'shopcar',
-    component: () => import('@/views/shopcar')
+    component: () => import('@/views/shopcar'),
+    meta:{
+      tabBarFlag:true
+    },
   }

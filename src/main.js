@@ -9,6 +9,7 @@ Vue.use(VueAwesomeSwiper)
 // Vue.use(VueTouch, {name: 'v-touch'})
 Vue.config.productionTip = false
 
+
 new Vue({
   router,
   store,

@@ -1,8 +1,9 @@
 <template>
     <div id = "classifyOne"> 
-        <div>
+        <div><a href="http://localhost:8080/views/search/index.vue#/search">
             <img :src="picUrl">
             <span>支持首字母搜索</span>
+            </a>
         </div>
     </div>
 </template>
@@ -41,7 +42,7 @@ export default {
         border-radius:.125rem;
         position: relative;
     }
-    #classifyOne div img{
+    #classifyOne div a img{
         margin-left:.25rem;
         margin-top:-.125rem;
         position: absolute;
@@ -49,7 +50,7 @@ export default {
         width:.375rem;
         height:.375rem;
     }
-    #classifyOne div span{
+    #classifyOne div a span{
         color:rgb(185, 182, 182);
         margin-left:1rem;
         font-size: .3rem;

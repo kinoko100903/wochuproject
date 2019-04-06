@@ -3,7 +3,7 @@
     <HomeOne/>
     <HomeTwo/>
     <HomeThree/>
-    <HomeFour/>
+    <HomeFour/>   
   </div>
 </template>
 
@@ -20,6 +20,11 @@ export default {
     HomeTwo,
     HomeThree,
     HomeFour
-  }
+  },
 }
 </script>
+<style lang="scss" scoped>
+   .home{
+     padding-bottom:1rem;
+   }
+</style>

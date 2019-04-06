@@ -2,51 +2,43 @@
   <div id="classifyThree">
     <router-view></router-view>
     <div id="ClassifyTwoRightTwo">
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/ceda0288-2e0d-4133-aa4c-7f1609ca2f65.jpg">
-        <p>我厨优选肉禽</p>
-      </div>
-
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/ceda0288-2e0d-4133-aa4c-7f1609ca2f65.jpg">
-        <p>我厨优选肉禽</p>
-      </div>
-
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/ceda0288-2e0d-4133-aa4c-7f1609ca2f65.jpg">
-        <p>我厨优选肉禽</p>
-      </div>
-
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/ceda0288-2e0d-4133-aa4c-7f1609ca2f65.jpg">
-        <p>我厨优选肉禽</p>
-      </div>
-
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/ceda0288-2e0d-4133-aa4c-7f1609ca2f65.jpg">
-        <p>我厨优选肉禽</p>
-      </div>
-
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/ceda0288-2e0d-4133-aa4c-7f1609ca2f65.jpg">
-        <p>我厨优选肉禽</p>
-      </div>
+      <router-link v-for="(item,index) in list[24]" tag="div" to="/classifya">
+        <img :src="item.imgUrl">
+        <p>{{item.goodsName}}</p>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-
+import Vuex from "vuex";
 export default {
   name: "classify",
-
+  created() {
+    this.getActionsList();
+  },
+  computed: {
+    ...Vuex.mapState({
+      list: state => state.home.list
+    })
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getActionsList: "home/getActionsList"
+    })
+  },
+  filters: {
+    toSign(val, sign) {
+      return sign + val;
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 #classifyThree {
   width: 75%;
-  position: fixed;
+   position: fixed;
   top:1rem;
   right: 0;
 }
@@ -71,7 +63,11 @@ export default {
   font-size: 0.24rem;
   margin-top: 0.2rem;
   margin-left: 0.25rem;
-  width:1rem;
+  width: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
 }
 #ClassifyTwoRightTwo div img {
   width: 0.75rem;

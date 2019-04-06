@@ -7,83 +7,63 @@
     </div>
 
     <div id="ClassifyTwoRightTwo">
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
-
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
-
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
-
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
-
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
-
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
+      <router-link v-for="(item,index) in list[10]" tag="div" to="/classifya">
+        <img :src="item.imgUrl">
+        <p>{{item.goodsName}}</p>
+      </router-link>
     </div>
 
-        <div id="classifyTwoRightOne">
+    <div id="classifyTwoRightOne">
       <div class="left-p"></div>
       <p>我厨精选</p>
       <div class="right-p"></div>
     </div>
 
-    <div id="ClassifyTwoRightTwo">
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
-
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
-
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
-
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
-
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
-
-      <div>
-        <img src="../../assets/img/111.png">
-        <p>全网抄底</p>
-      </div>
+     <div id="ClassifyTwoRightTwo">
+      <router-link v-for="(item,index) in list[12]" tag="div" to="/classifya">
+        <img :src="item.imgUrl">
+        <p>{{item.goodsName}}</p>
+      </router-link>
     </div>
 
+    <div id="classifyTwoRightOne">
+      <div class="left-p"></div>
+      <p>我厨精选</p>
+      <div class="right-p"></div>
+    </div>
+
+     <div id="ClassifyTwoRightTwo">
+      <router-link v-for="(item,index) in list[14]" tag="div" to="/classifya">
+        <img :src="item.imgUrl">
+        <p>{{item.goodsName}}</p>
+      </router-link>
+    </div>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Vuex from "vuex";
 export default {
   name: "classify",
-
+  created() {
+    this.getActionsList();
+  },
+  computed: {
+    ...Vuex.mapState({
+      list: state => state.home.list
+    })
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getActionsList: "home/getActionsList"
+    })
+  },
+  filters: {
+    toSign(val, sign) {
+      return sign + val;
+    }
+  }
 };
 </script>
 
@@ -92,8 +72,8 @@ export default {
   width: 75%;
   position: absolute;
   right: 0;
-  margin-top:.2rem;
- 
+  margin-top: 0.2rem;
+  padding-bottom: 1rem;
 }
 #classifyTwoRightOne {
   width: 100%;
@@ -135,12 +115,20 @@ export default {
   display: flex;
   flex-direction: column;
   margin-top: 0.625rem;
+  img{
+    width:.6rem;
+    height:.6rem;
+  }
 }
 #ClassifyTwoRightTwo div p {
   color: rgb(97, 95, 95);
   font-size: 0.24rem;
   margin-top: 0.2rem;
   margin-left: 0.25rem;
+  width: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 #ClassifyTwoRightTwo div img {
   width: 0.75rem;

@@ -4,6 +4,9 @@ import home from "./home";
 import classify from "./classify";
 import mine from "./mine";
 import shopcar from "./shopcar";
+import city from "./city";
+import search from "./search";
+import classifya from "./classifya";
 
 Vue.use(Router)
 
@@ -17,6 +20,9 @@ export default new Router({
     classify,
     mine,
     shopcar,
+    city,
+    search,
+    classifya,
     {
       path:"**",
       redirect:"/home"

@@ -1,45 +1,37 @@
 <template>
   <div id="classifyThree">
     <router-view></router-view>
-    <div id="ClassifyTwoRightTwo">
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/4e3b486b-51fc-4147-90f8-54cdb5cf28c2.jpg">
-        <p>我厨优选蔬菜</p>
-      </div>
-
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/458265f0-184d-4101-a281-77021e46b08b.jpg">
-        <p>我厨优选禽蛋</p>
-      </div>
-
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/8ce3cf53-5547-4b51-9d07-3a882fbceea9.jpg">
-        <p>我厨优选肉类</p>
-      </div>
-
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/4e3b486b-51fc-4147-90f8-54cdb5cf28c2.jpg">
-        <p>我厨优选蔬菜</p>
-      </div>
-
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/4e3b486b-51fc-4147-90f8-54cdb5cf28c2.jpg">
-        <p>我厨优选蔬菜</p>
-      </div>
-
-      <div>
-        <img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/4e3b486b-51fc-4147-90f8-54cdb5cf28c2.jpg">
-        <p>我厨优选蔬菜</p>
-      </div>
+     <div id="ClassifyTwoRightTwo">
+      <router-link v-for="(item,index) in list[3]" tag="div" to="/classifya">
+        <img :src="item.imgUrl">
+        <p>{{item.goodsName}}</p>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-
+import Vuex from "vuex";
 export default {
   name: "classify",
-
+  created() {
+    this.getActionsList();
+  },
+  computed: {
+    ...Vuex.mapState({
+      list: state => state.home.list
+    })
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getActionsList: "home/getActionsList"
+    })
+  },
+  filters: {
+    toSign(val, sign) {
+      return sign + val;
+    }
+  }
 };
 </script>
 
@@ -71,7 +63,11 @@ export default {
   font-size: 0.24rem;
   margin-top: 0.2rem;
   margin-left: 0.25rem;
-  width:1rem;
+  width: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
 }
 #ClassifyTwoRightTwo div img {
   width: 0.75rem;

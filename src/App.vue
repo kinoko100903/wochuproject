@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <TarberCon/>
+      <TarberCon v-if="this.$route.meta.tabBarFlag"/>
     </div>
     <router-view/>
   </div>
