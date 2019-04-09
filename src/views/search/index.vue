@@ -84,10 +84,11 @@ export default {
       height: 70%;
       width: 80%;
       background: rgb(233, 227, 227);
-      border:1px solid rgb(233, 227, 227);
+      border:0;
       margin-top:-0.3125rem;
       font-size:.24rem;
       line-height: 78%;
+      outline: none;
     }
   }
   p {

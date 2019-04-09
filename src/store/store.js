@@ -5,6 +5,7 @@ import classifyTwo from "@/stores/classifyTwo"
 import city from "@/stores/city";
 import search from "@/stores/search";
 import goods from "@/stores/goods";
+import shopcar from './shopcar'
 
 import axios from 'axios';
 
@@ -48,5 +49,6 @@ export default new Vuex.Store({
     city,
     search,
     goods,
+    shopcar
   }
 })

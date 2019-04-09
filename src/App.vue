@@ -23,5 +23,6 @@ export default {
 }
 #app{
   position: relative;
+  background: white;
 }
 </style>

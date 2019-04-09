@@ -1,9 +1,9 @@
 <template>
     <div id = "classifyOne"> 
-        <div><a href="http://localhost:8080/views/search/index.vue#/search">
+        <div><router-link tag="a" to="/search">
             <img :src="picUrl">
             <span>支持首字母搜索</span>
-            </a>
+            </router-link>
         </div>
     </div>
 </template>

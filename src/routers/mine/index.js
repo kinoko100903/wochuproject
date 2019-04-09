@@ -1,8 +1,8 @@
 export default {
-    path: '/mine',
-    name: 'mine',
-    component: () => import('@/views/mine'),
+    path:'/mine',
+    component:()=>import('@/views/mine'),
+    name:'mine',
     meta:{
-      tabBarFlag:true
-    },
-  }
+        tabBarFlag:true
+      },
+}
