@@ -443,6 +443,8 @@ s {
     list-style: none;
     display: flex;
     overflow: auto;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
     li {
       margin-left: 0.4rem;
       img {

@@ -11,10 +11,17 @@ export default {
   mounted() {
     this.scroll = new BScroll(this.$refs.wrapper, {
       tap: true,
-      pullUpLoad: true
+      pullUpLoad: true,
+      click: true,
+      freeScroll: true,
+      scrollX: true,
+      hasHorizontalScroll: true,
+      hasVerticalScroll: true,
+      bindToWrapper: true,
+      eventPassthrough:"horizontal",
+
     });
-  console.log(this.scroll);
-   
+    console.log(this.scroll);
   },
   methods: {
     handleTo(t) {
@@ -25,12 +32,12 @@ export default {
         this.$store.dispatch("movie/getActionMoreMovie");
       });
     },
-    update(){
-         //当数据加载完毕以后
-        this.scroll.finishPullUp();
+    update() {
+      //当数据加载完毕以后
+      this.scroll.finishPullUp();
     },
-    getih(){
-        this.scroll.refresh();
+    getih() {
+      this.scroll.refresh();
     }
   }
 };
@@ -39,6 +46,7 @@ export default {
 
 <style scoped>
 .wrapper {
-  height: 100%;
+  height: 2000px;
+  width:100%;
 }
 </style>

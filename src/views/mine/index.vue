@@ -12,7 +12,7 @@
           <span>{{money}}</span>
           <span>账户余额</span>
           <p>
-            <i class="iconfont">&#xe76c;</i>
+            <i class="iconfont">&#xe634;</i>
             充值立送现金哦~
           </p>
         </div>
@@ -37,15 +37,15 @@
         <span>待收货</span>
       </a>
       <a href="http://wmall.wochu.cn/h5/user/myOrders.html?id=3">
-        <i class="iconfont icon-xiaoxi"></i>
+        <i class="iconfont icon-daipingjiaicon"></i>
         <span>待评价</span>
       </a>
       <a href="http://wmall.wochu.cn/h5/historyget/facebackGuide.html">
-        <i class="iconfont icon-shouhouguanli"></i>
+        <i class="iconfont icon-shouhoufuwu"></i>
         <span>退货/售后</span>
       </a>
       <a href="http://wmall.wochu.cn/h5/user/myOrders.html?id=0">
-        <i class="iconfont icon-dingdan1"></i>
+        <i class="iconfont icon-wodedingdan"></i>
         <span class="order">我的订单</span>
       </a>
     </div>
@@ -257,6 +257,8 @@ export default {
         color: #999696;
         img{
           margin-bottom: .2rem;
+          width:.6rem;
+          height:.6rem;
         }
       }
     }

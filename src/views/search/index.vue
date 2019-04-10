@@ -1,7 +1,7 @@
 <template>
   <div class="searchbox">
     <div class="search">
-      <span class="iconfont" >&#xe642;</span>
+      <router-link tag="span" to="/home" class="iconfont" >&#xe642;</router-link>
       <div>
         <span class="iconfont font">&#xe819;</span>
         <input type="text" :value="this.$store.state.inputVal" @input="handlechange($event)">

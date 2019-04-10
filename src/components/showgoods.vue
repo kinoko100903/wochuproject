@@ -8,7 +8,7 @@
           <div class="yuanPrice">￥{{item.marketPrice}}</div>
           <div class="xianPrice">￥{{item.price}}</div>
         </div>
-        <div class="add iconfont">&#xe614;</div>
+        <div class="add iconfont">&#xe726;</div>
       </div>
     </div>
   </div>
@@ -45,6 +45,7 @@ export default {
   margin-bottom: .2rem;
   background: #ffffff;
   float: left;
+  overflow: auto;
   img {
     width: 100%;
     height: 2.26rem;

@@ -2,9 +2,9 @@
   <div class="city">
     <div class="logo">
       <img src="../../assets/img/loginTop.gif">
-      <a href="../home/index.vue">
+      <router-link to="/home" tag="a">
         <img src="../../assets/img/close.png">
-      </a>
+      </router-link>
     </div>
 
     <ul class="ul1">

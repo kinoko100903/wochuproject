@@ -3,49 +3,53 @@
     <Header/>
 
     <!--go to update-->
-    <div id="toupdate">
-      <p>
-        <i class="iconfont icon-erji-dingshirenwu"></i>
-      </p>
-      <p>
-        配送时间：
-        <span>{{time}}</span>
-      </p>
-      <p class="update">
-        {{update}}
-        <span class="go">></span>
-      </p>
-    </div>
+    <Loading v-if="isLoading"/>
+    <BScroll v-else>
+      <div class="content">
+        <div id="toupdate">
+          <p>
+            <i class="iconfont icon-erji-dingshirenwu"></i>
+          </p>
+          <p>
+            配送时间：
+            <span>{{time}}</span>
+          </p>
+          <p class="update">
+            {{update}}
+            <span class="go">></span>
+          </p>
+        </div>
 
-    <!--this area can scroll-->
-    <div class="shopContent">
-      <!--go to change some goods-->
-      <div id="tochange">
-        <p class="change">
-          <i>换购</i>
-        </p>
-        <p class="detail">
-          <span>{{datail}}</span>
-        </p>
+        <!--this area can scroll-->
+        <div class="shopContent">
+          <!--go to change some goods-->
+          <div id="tochange">
+            <p class="change">
+              <i>换购</i>
+            </p>
+            <p class="detail">
+              <span>{{datail}}</span>
+            </p>
 
-        <p class="update">
-          {{change}}
-          <span class="go">></span>
-        </p>
-      </div>
-      <Goods/>
-      <Goods/>
-      <!--show some good goods-->
-      <div id="showgoods">
-        <div class="goodstitle">
-          <em></em>
-          {{showgoods}}
-          <i></i>
+            <p class="update">
+              {{change}}
+              <span class="go">></span>
+            </p>
+          </div>
+          <Goods/>
+          <Goods/>
+          <!--show some good goods-->
+          <div id="showgoods">
+            <div class="goodstitle">
+              <em></em>
+              {{showgoods}}
+              <i></i>
+            </div>
+          </div>
+          <GoodsList/>
         </div>
       </div>
-      <GoodsList/>
-    </div>
-
+    </BScroll>
     <!--commit goods sum price-->
     <div id="sum">
       <div class="content">
@@ -75,7 +79,7 @@
 <script>
 import Goods from "../../components/good";
 import GoodsList from "../../components/showgoods";
-import Header from "../../common/header/index"
+import Header from "../../common/header/index";
 export default {
   name: "shopcar",
   data() {
@@ -88,13 +92,19 @@ export default {
       sum: "59.80",
       count: "(2)",
       flyfree: "(不含运费)",
-      friget: '"全场满99包邮 点我凑单"'
+      friget: '"全场满99包邮 点我凑单"',
+      isLoading: true
     };
   },
   components: {
     Goods,
     GoodsList,
     Header
+  },
+  mounted() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1500);
   }
 };
 </script>
@@ -203,6 +213,7 @@ $color: #f86c15;
       font-size: 0.35rem;
     }
     .sum {
+      margin-top:1rem;
       margin-left: 0.2rem;
       font-size: 0.28rem;
       color: #000000;
@@ -229,7 +240,7 @@ $color: #f86c15;
   height: 0.5rem;
   position: fixed;
   bottom: 2.24rem;
-  left: .8rem;
+  left: 0.8rem;
   background: #f1c0a3;
   padding: 0 0.1rem;
   border-radius: 0.25rem;
@@ -238,9 +249,8 @@ $color: #f86c15;
   line-height: 0.5rem;
   margin-left: 0.74rem;
   p {
-     position: fixed;
-  bottom: 2.13rem;
-
+    position: fixed;
+    bottom: 2.13rem;
     width: 0;
     height: 0;
     left: 2.3rem;
@@ -248,5 +258,8 @@ $color: #f86c15;
     border-right: 0.12rem solid transparent;
     border-top: 0.12rem solid #f1c0a3;
   }
+}
+.content {
+  padding-bottom: 1rem;
 }
 </style>

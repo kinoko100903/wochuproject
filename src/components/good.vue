@@ -55,8 +55,8 @@ export default {
     font-size: 0.28rem;
   }
   img {
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2rem;
+    height: 2rem;
   }
   .sum {
     width: 1.56rem;
