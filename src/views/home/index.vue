@@ -42,7 +42,7 @@ export default {
 .home {
   padding-bottom: 1rem;
 }
-.content{
-  padding-bottom: 1rem;
-}
+// .content{
+//   padding-bottom: 1rem;
+// }
 </style>

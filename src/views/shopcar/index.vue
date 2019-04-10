@@ -1,11 +1,12 @@
 <template>
   <div class="shopcar">
-    <Header/>
-
-    <!--go to update-->
     <Loading v-if="isLoading"/>
     <BScroll v-else>
       <div class="content">
+    <Header/>
+
+    <!--go to update-->
+    
         <div id="toupdate">
           <p>
             <i class="iconfont icon-erji-dingshirenwu"></i>
@@ -213,7 +214,7 @@ $color: #f86c15;
       font-size: 0.35rem;
     }
     .sum {
-      margin-top:1rem;
+      // margin-top:1rem;
       margin-left: 0.2rem;
       font-size: 0.28rem;
       color: #000000;
@@ -259,7 +260,7 @@ $color: #f86c15;
     border-top: 0.12rem solid #f1c0a3;
   }
 }
-.content {
-  padding-bottom: 1rem;
-}
+// .content {
+//   padding-bottom: 1rem;
+// }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="left">
-      <span class="iconfont">&#xe642;</span>
+      <span class="iconfont" @tap="handleChange">&#xe642;</span>
     </div>
     <router-link class="center" tag="div" to="/city">
       <span class="iconfont">&#xe634;</span>
@@ -21,7 +21,12 @@ export default {
       adress: "请填写地址",
       write: "编辑"
     };
-  }
+  },
+  methods: {
+    handleChange(){
+      this.$router.back();
+    }
+  }, 
 };
 </script>
 

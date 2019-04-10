@@ -1,7 +1,7 @@
 <template>
   <div class="classifya">
     <img src="../../assets/img/ccccccc.jpg" class="img">
-    <img src="../../assets/img/ac-back.png">
+    <router-link tag="span" to="/home" class="iconfont">&#xe642;</router-link>
     <img src="../../assets/img/ac-share.png">
     <img src="../../assets/img/ac-cart.png">
     <img src="../../assets/img/go_top.png">
@@ -136,5 +136,11 @@ export default {
       }
     }
   }
+}
+.iconfont{
+  font-size:.6rem;
+  position: fixed;
+  top:0.1875rem;
+  color:black;
 }
 </style>
