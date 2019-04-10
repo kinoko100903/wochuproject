@@ -6,14 +6,14 @@
           src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/f58332d2-ad98-4d10-aa96-28d1b8090d37.jpg"
         >
       </div>
-      <ul v-for="(item,index) in list[0]" id = "animate">
+      <ul v-for="(item,index) in list[0]" id="animate">
         <li>{{item.posDes}}</li>
         <li>{{item.title}}</li>
         <span class="iconfont">&#xf02aa;</span>
       </ul>
     </div>
     <div class="logo" v-for="(item,index) in list[1]">
-      <img :src="item.imgUrl">
+      <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
     </div>
     <div class="timelimit">
       <div id="solid"></div>
@@ -23,7 +23,7 @@
       <div id="solid"></div>
     </div>
     <div class="goods">
-      <div class="goodss" v-for="(item,index) in list[2]">
+      <router-link class="goodss" v-for="(item,index) in list[2]" tag="div" to="/classifya">
         <img :src="item.imgUrl">
         <div id="top">
           <p class="p1">{{item.goodsName}}</p>
@@ -34,28 +34,31 @@
             <span class="iconfont">&#xe726;</span>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
     <div class="list">
       <ul>
-       <router-link v-for="(item,index) in list[3]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[3]">
+          <router-link tag="div" to="/classifya">
+            <img :src="item.imgUrl">
+          </router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
+
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
+            <span class="iconfont aa" id="bb" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
-    <div class="listlogo" v-for="(item,index) in list[4]" >
-      <img :src="item.imgUrl">
+    <div class="listlogo" v-for="(item,index) in list[4]">
+      <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
     </div>
-    <div class="listlogo" v-for="(item,index) in list[5]" >
-      <img :src="item.imgUrl">
+    <div class="listlogo" v-for="(item,index) in list[5]">
+      <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
     </div>
-    <div class="imglogo" >
+    <div class="imglogo">
       <img src="https://img.wochu.cn/upload/046da038-d3a0-4251-8b93-dcabc544a2ac.jpg">
       <div>
         <img src="https://img.wochu.cn/upload/a9abf4fe-170c-4d5e-8e59-ec4a1219e349.jpg">
@@ -72,10 +75,8 @@
     </div>
 
     <div class="goods">
-      <div class="goodss" v-for="(item,index) in list[7]">
-        <img
-          :src="item.imgUrl"
-        >
+      <router-link class="goodss" v-for="(item,index) in list[7]" tag="div" to="/classifya">
+        <img :src="item.imgUrl">
         <div id="top">
           <p class="p1">{{item.goodsName}}</p>
           <p class="p2">{{item.description}}</p>
@@ -85,20 +86,23 @@
             <span class="iconfont">&#xe726;</span>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
 
     <div class="list">
       <ul>
-       <router-link v-for="(item,index) in list[8]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[8]">
+          <router-link tag="div" to="/classifya">
+            <img :src="item.imgUrl">
+          </router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
+
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="bb">&#xe726;</span>
+            <span class="iconfont aa" id="bb" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
 
@@ -107,15 +111,15 @@
     </div>
     <div class="weeklist">
       <ul>
-         <router-link v-for="(item,index) in list[10]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[10]">
+          <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="cc">&#xe726;</span>
+            <span class="iconfont aa" id="cc" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
 
@@ -124,15 +128,15 @@
     </div>
     <div class="weeklist">
       <ul>
-         <router-link v-for="(item,index) in list[12]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[12]">
+          <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="cc">&#xe726;</span>
+            <span class="iconfont aa" id="cc" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
 
@@ -141,15 +145,15 @@
     </div>
     <div class="weeklist">
       <ul>
-         <router-link v-for="(item,index) in list[14]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[14]">
+          <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="cc">&#xe726;</span>
+            <span class="iconfont aa" id="cc" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
 
@@ -158,15 +162,15 @@
     </div>
     <div class="weeklist">
       <ul>
-         <router-link v-for="(item,index) in list[16]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[16]">
+          <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="cc">&#xe726;</span>
+            <span class="iconfont aa" id="cc" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
 
@@ -175,33 +179,32 @@
     </div>
     <div class="weeklist">
       <ul>
-         <router-link v-for="(item,index) in list[18]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[18]">
+          <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="cc">&#xe726;</span>
+            <span class="iconfont aa" id="cc" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
-
 
     <div class="weeknew" v-for="(item,index) in list[19]">
       <img :src="item.imgUrl">
     </div>
     <div class="weeklist">
       <ul>
-         <router-link v-for="(item,index) in list[20]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[20]">
+          <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="cc">&#xe726;</span>
+            <span class="iconfont aa" id="cc" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
 
@@ -210,77 +213,74 @@
     </div>
     <div class="weeklist">
       <ul>
-         <router-link v-for="(item,index) in list[22]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[22]">
+          <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="cc">&#xe726;</span>
+            <span class="iconfont aa" id="cc" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
-
 
     <div class="weeknew" v-for="(item,index) in list[23]">
       <img :src="item.imgUrl">
     </div>
     <div class="weeklist">
       <ul>
-         <router-link v-for="(item,index) in list[24]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[24]">
+          <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="cc">&#xe726;</span>
+            <span class="iconfont aa" id="cc" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
-
 
     <div class="weeknew" v-for="(item,index) in list[25]">
       <img :src="item.imgUrl">
     </div>
     <div class="weeklist">
       <ul>
-         <router-link v-for="(item,index) in list[26]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[26]">
+          <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="cc">&#xe726;</span>
+            <span class="iconfont aa" id="cc" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
-
 
     <div class="weeknew" v-for="(item,index) in list[27]">
       <img :src="item.imgUrl">
     </div>
     <div class="weeklist">
       <ul>
-         <router-link v-for="(item,index) in list[28]" tag="li" to="/classifya">
-          <img :src="item.imgUrl">
+        <li v-for="(item,index) in list[28]">
+          <router-link tag="div" to="/classifya"><img :src="item.imgUrl"></router-link>
           <p>{{item.goodsName}}</p>
           <s>{{item.marketPrice | toSign("￥") }}</s>
           <div>
             <p>{{item.price | toSign("￥") }}</p>
-            <span class="iconfont aa" id="cc">&#xe726;</span>
+            <span class="iconfont aa" id="cc" @click="handleadd">&#xe726;</span>
           </div>
-        </router-link>
+        </li>
       </ul>
     </div>
-
   </div>
 </template>
 
 <script>
 import Vuex from "vuex";
+import { Toast } from "mint-ui";
 
 // import {getHome} from "@/api/api.js"
 export default {
@@ -294,18 +294,24 @@ export default {
       list: state => state.home.list
     })
   },
-    //接收mutations方法中传递过来的值
+  //接收mutations方法中传递过来的值
   methods: {
     ...Vuex.mapActions({
       getActionsList: "home/getActionsList"
-    })
+    }),
+    handleadd() {
+      Toast({
+        message: "添加成功",
+        iconClass: "iconfont icon-guanzhu1",
+        duration: 1500
+      });
+    }
   },
-  filters:{
-        toSign(val,sign){
-            return sign+val;
-        }
-    },
-
+  filters: {
+    toSign(val, sign) {
+      return sign + val;
+    }
+  }
 };
 </script>
 
@@ -341,10 +347,10 @@ export default {
       height: 1.1rem;
       margin-top: 0.4rem;
       margin-left: 0.625rem;
-      width:100%;
+      width: 100%;
     }
   }
-  ul:nth-of-type(2){
+  ul:nth-of-type(2) {
     display: none;
   }
   span {
@@ -450,7 +456,7 @@ s {
       img {
         width: 1.8rem;
         height: 1.8rem;
-        margin-left:-0.3125rem;
+        margin-left: -0.3125rem;
       }
       p {
         font-size: 0.24rem;
@@ -480,7 +486,7 @@ s {
   margin-left: -0.1375rem;
   font-size: 0.6rem;
 }
-#cc{
+#cc {
   margin-left: 0.1375rem;
   font-size: 0.6rem;
 }
@@ -541,7 +547,7 @@ s {
         font-size: 0.24rem;
         color: #666;
         margin-top: 0.1875rem;
-         width: 1.2rem;
+        width: 1.2rem;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;

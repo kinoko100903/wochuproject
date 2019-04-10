@@ -8,7 +8,7 @@
           <div class="yuanPrice">￥{{item.marketPrice}}</div>
           <div class="xianPrice">￥{{item.price}}</div>
         </div>
-        <div class="add iconfont">&#xe726;</div>
+        <div class="add iconfont" @click="add">&#xe726;</div>
       </div>
     </div>
   </div>
@@ -18,6 +18,7 @@
 <script>
 import Vuex from "vuex";
 import axios from "axios";
+import { Toast } from "mint-ui";
 export default {
   created() {
     this.$store.dispatch("shopcar/actionsShowGoods");
@@ -25,15 +26,17 @@ export default {
   computed: {
     ...Vuex.mapState({
       goods: state => state.shopcar.goods
-      
     })
+  },
+  methods: {
+    add() {
+      Toast({
+        message: "添加成功",
+        iconClass: "iconfont icon-guanzhu1",
+        duration: 1500
+      });
+    }
   }
-  /* methods: {
-    ...Vuex.mapActions({
-      hadlerGetShowGoods: "shopcar/hadlerGetShowGoods"
-
-    })
-  } */
 };
 </script>
 
@@ -41,8 +44,8 @@ export default {
 <style lang="scss" scoped>
 #goodlist {
   width: 2.2554rem;
-  margin-left:.15rem;
-  margin-bottom: .2rem;
+  margin-left: 0.15rem;
+  margin-bottom: 0.2rem;
   background: #ffffff;
   float: left;
   overflow: auto;
